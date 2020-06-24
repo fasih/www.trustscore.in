@@ -1,0 +1,116 @@
+{% extends '_layout/base.html' %}
+{% block head_title %}{{APP_BRAND}}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{STATIC_URL}}public/css/app.css" type="text/css" media="all">
+<style type="text/css"></style>
+{% endblock %}
+
+{% block extra_head %}
+<script src="{{STATIC_URL}}public/js/webcam.js"></script>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{STATIC_URL}}public/js/app.js"></script>
+{% endblock %}
+
+{% block extra_body %}
+<script type="text/javascript">window.csrf_token = "{{ csrf_token }}"</script>
+{% endblock %}
+
+{% block main %}
+  <main class="side-main">
+
+    <!-- ================ contact section start ================= -->
+    <section class="section-padding" name="contact">
+      <div class="container">
+        
+        <div class="section-intro text-center">
+          <h2 class="section-intro__title">Build your business with TrustScore</h2>
+          <p class="section-intro__subtitle">
+            {% if not user.is_authenticated %}
+            Please <a href="{{ LOGIN_URL }}">sign in</a> or contact <a href="mailto:admin@trustscore.in" />admin@trustscore.in</a>
+            to try TrustScore App on the web.
+            {% else %}
+            Please take a photo of your Identity document.
+            {% endif %}
+          </p>
+        </div>        
+        {% if user.is_authenticated %}        
+        <div class="row pb-85px">
+          
+          <div class="col-md-4 col-lg-4 text-center">
+            <div class="" id="user_camera" style="width:320px; height:240px;"></div>
+            <a class="button button-contactForm" href="javascript:void(take_photo('capturedId'))">Click Doc</a>
+            <a class="button button-contactForm" href="javascript:void(take_photo('capturedPhoto'))">Click Photo</a> 
+          </div>
+
+          <div class="col-md-4 col-lg-4 text-center">         
+            <div id="output1"></div>
+          </div>
+
+          <script language="JavaScript">
+              Webcam.attach( '#user_camera' );              
+          </script>
+
+          <div class="col-md-4 col-lg-4 text-center">
+            <div id="output2"></div>
+          </div>
+
+        </div>
+
+        <div class="row pb-85px">
+
+          <div class="col-md-4 col-lg-4">
+          </div>
+
+          <div class="col-md-4 col-lg-4 text-center">
+            <div id="output3"></div>
+          </div>
+
+          <div class="col-md-4 col-lg-4">
+          </div>                    
+
+        </div>
+        
+        {% else %}
+        <div class="row">
+          <div class="col-lg-6">
+
+            <div class="row offer-single-wrapper">
+              <div class="col-lg-6 offer-single">
+                <div class="card offer-single__content text-center">
+                  <span class="offer-single__icon">
+                    <i class="ti-camera"></i>
+                  </span>
+                  <h4>Take Photo</h4>
+                  <p>We extract information from KYC images using optical character recognition (OCR) to auto-fill, thus saving time and eliminating human errors.</p>
+                </div>
+              </div>
+              
+              <div class="col-lg-6 offer-single">
+                <div class="card offer-single__content text-center">
+                  <span class="offer-single__icon">
+                    <i class="ti-id-badge"></i>
+                  </span>
+                  <h4>Verify Identity</h4>
+                  <p>Our machine learning algorithms detect any template changes of documents by analyzing Pixels, Text Heuristic & Geometric Alignments</p>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="col-lg-6">
+            <div class="offer-single__img">
+              <img class="img-fluid" src="{{STATIC_URL}}public/img/home/offer.png" alt="">
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+    <!-- ================ contact section end ================= -->
+
+  </main>
+{% endblock %}

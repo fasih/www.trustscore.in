@@ -1,0 +1,7 @@
+User-Agent: *
+Disallow: /api/
+Disallow: /app/
+Disallow: /admin/
+
+Sitemap: https://www.trustscore.in/sitemap.xml
+

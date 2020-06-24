@@ -1,0 +1,130 @@
+
+  {% block html %}
+  <!DOCTYPE html>
+  <html lang="en">
+  {% block head %}
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#486aae">
+    <title>{% block head_title %}{{ROOT_BRAND}}{% endblock %}</title>
+  <!--{% include '_layout/banner.html' %}-->
+    {% include '_layout/seo_meta.html' %}
+    {% include '_layout/favicon.html' %}
+
+    
+    {% block main_css %}
+    <link rel="stylesheet" href="{{STATIC_URL}}public/vendors/bootstrap/bootstrap.min.css">  
+    <link rel="stylesheet" href="{{STATIC_URL}}public/vendors/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="{{STATIC_URL}}public/vendors/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="{{STATIC_URL}}public/vendors/linericon/style.css">
+    <link rel="stylesheet" href="{{STATIC_URL}}public/vendors/owl-carousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="{{STATIC_URL}}public/vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="{{STATIC_URL}}public/vendors/fonts-google/css/Rajdhani.css">
+    <link rel="stylesheet" href="{{STATIC_URL}}public/vendors/fonts-google/css/Roboto.css">
+    <link rel="stylesheet" href="{{STATIC_URL}}public/css/style.css">
+    {% endblock %}
+    {% block extra_css %}
+    <link rel="stylesheet" href="{{STATIC_URL}}public/css/extra.css">
+    {% endblock %}
+    
+
+    {% block extra_head %}
+    {% endblock %}
+
+    {% include '_layout/gtm_head.html' %}
+  </head>
+  {% endblock %}
+
+  {% block body%}
+  <body>
+    {% include '_layout/gtm_body.html' %}
+
+    {% block header %}
+    <!--================Header Menu Area =================-->
+    <header class="header_area">
+      <div class="main_menu">
+        <nav class="navbar navbar-expand-lg navbar-light nav-menu">
+          <div class="container box_1620">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <a class="navbar-brand logo_h hero-banner__content" href="{{ROOT_URL}}"><h1>{{ROOT_BRAND}}</h1></a>
+            <button class="navbar-toggler" id="mobile_nav" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+              {% block nav_links %}
+              <ul class="nav navbar-nav menu_nav justify-content-end">
+                <li class="nav-item"><a class="nav-link" href="/#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#features">Features</a></li> 
+                <li class="nav-item"><a class="nav-link" href="/#how">How</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#benefits">Benefits</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#products">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#contact">Contact</a></li>
+                {% if user.is_authenticated %}
+                <li class="nav-item submenu dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    aria-expanded="false">Account</a>
+                  <ul class="dropdown-menu">
+                    <li class="nav-item"><a class="nav-link" href="{{APP_URL}}email/">Email</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{APP_URL}}password/change/">Password</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{LOGOUT_URL}}">Sign Out</a></li>
+                  </ul>
+                </li>
+                {% endif %}
+              </ul>
+              {% endblock %}
+              {% block nav_button %}
+              <ul class="navbar-right">
+                <li class="nav-item">
+                  <a href="{{APP_URL}}">
+                    <button class="button button-header bg">TrustKYC</button>
+                  </a>
+                </li>
+              </ul>
+              {% endblock %}
+            </div> 
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!--================Header Menu Area =================-->
+    {% endblock %}
+
+    {% block main %}
+    {% endblock %}
+
+    {% block footer %}
+    <!-- ================ start footer Area ===============-->
+    <footer class="footer-area section-gap">
+      <div class="container">      
+        <div class="footer-bottom row align-items-center text-center text-lg-left">
+          <p class="footer-text m-0 col-lg-8 col-md-12">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <a href="/privacy/">Privacy Policy</a></p>
+        </div>
+      </div>
+    </footer>
+    <!-- ================ End footer Area =================-->
+    {% endblock %}
+
+
+    {% block main_js %}
+    <script src="{{STATIC_URL}}public/vendors/jquery/jquery-3.2.1.min.js"></script>
+    <script src="{{STATIC_URL}}public/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="{{STATIC_URL}}public/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="{{STATIC_URL}}public/js/jquery.ajaxchimp.min.js"></script>
+    <script src="{{STATIC_URL}}public/js/main.js"></script>
+    {% endblock %}
+    {% block extra_js %}
+    {% endblock %}
+    
+
+    {% block extra_body %}
+    {% endblock %}
+
+  </body>
+  {% endblock %}
+  </html>
+  {% endblock %}

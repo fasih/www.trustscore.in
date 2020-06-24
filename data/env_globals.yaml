@@ -1,0 +1,39 @@
+user:
+  is_authenticated: false
+
+ROOT_BRAND: TrustScore
+API_BRAND: TrustScore API
+APP_BRAND:
+ADMIN_BRAND:
+
+ROOT_DOMAIN:  trustscore.in
+ROOT_SCHEME:  https
+ROOT_USER:  admin
+ROOT_WEB: www
+
+ROOT: '/'
+WEB_ROOT: ''
+APP_ROOT: app/
+API_ROOT: 'api/'
+ADMIN_ROOT: 'admin/'
+SWAGGER_ROOT: 'swagger/'
+
+
+MEDIA_ROOT: '../media/'
+STATIC_ROOT:  '../static/'
+
+MEDIA_URL:  '/media/'
+STATIC_URL: '/static/'
+
+API_URL:  '/api/'
+APP_URL:  '/app/'
+ADMIN_URL:  '/admin/'
+SWAGGER_URL: '/api/swagger/'
+SPEC_URL: "/api/swagger/?format=openapi"
+SITEMAP_URL:  'sitemap.xml'
+
+
+LOGIN_REDIRECT_URL: '/app/'
+LOGIN_URL:  '/app/login/'
+LOGOUT_URL: '/app/logout/'
+
