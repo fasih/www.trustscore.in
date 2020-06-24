@@ -163,6 +163,7 @@ if __name__ == "__main__":
         staticpaths=[
             "static",
             "CNAME",
+            "robots.txt"
             "favicon.ico",
             "apple-touch-icon.png",
             "apple-touch-icon-precomposed.png",

@@ -37,3 +37,5 @@ LOGIN_REDIRECT_URL: '/app/'
 LOGIN_URL:  '/app/login/'
 LOGOUT_URL: '/app/logout/'
 
+FAVICON_URL:  '/public/images/favicon.png'
+LOGO_URL: '/public/images/TrustScore.png'
